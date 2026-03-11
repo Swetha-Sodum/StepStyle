@@ -54,6 +54,11 @@ react {
     autolinkLibrariesWithApp()
 }
 
+// Add this block to specify which icon fonts you're using
+project.ext.vectoricons = [
+    iconFontNames: [ 'MaterialIcons.ttf' ] // Add any other fonts like 'Ionicons.ttf' if you use them
+]
+
 /**
  * Set this to true to Run Proguard on Release builds to minify the Java bytecode.
  */
@@ -77,9 +82,9 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
-    namespace "com.myfirstapp"
+    namespace "com.stepstyle"
     defaultConfig {
-        applicationId "com.myfirstapp"
+        applicationId "com.stepstyle"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
@@ -117,3 +122,6 @@ dependencies {
         implementation jscFlavor
     }
 }
+
+// Copy icon fonts during build
+apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
